@@ -1,0 +1,26 @@
+Add commit information when exporting an archive
+
+When archiving the patchqueue, generate a file describing the patchqueue
+commit information.  Also include a file in the base repository that
+descibes the base repository commit information. This must be regenerated
+each time the base commit is changed. To do that, run the following from
+the top of the base repo and refresh this patch:
+
+git log -1 --pretty='format:Commit: %H%nCommit date: %cD%n' <base-commit> > .gitarchive-info
+
+diff --git a/.gitarchive-info b/.gitarchive-info
+new file mode 100644
+index 000000000000..5fea292799bc
+--- /dev/null
++++ b/.gitarchive-info
+@@ -0,0 +1,2 @@
++Commit: dffbba4348e9686d6bf42d54eb0f2cd1c4fb3520
++Commit date: Thu, 31 Jan 2019 08:14:42 +0100
+diff --git a/.gitarchive-info-pq b/.gitarchive-info-pq
+new file mode 100644
+index 000000000000..fd3e074193b1
+--- /dev/null
++++ b/.gitarchive-info-pq
+@@ -0,0 +1,2 @@
++Commit: a71223a84db4bd23df2a0ce59dfe0ae3dc795c85
++Commit date: Fri, 22 Mar 2019 10:57:38 +0000
