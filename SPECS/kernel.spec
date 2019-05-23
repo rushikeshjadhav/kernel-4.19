@@ -4,9 +4,9 @@
 
 # Control whether we perform a compat. check against published ABI.
 # Default enabled: (to override: --without kabichk)
-%define do_kabichk  %{?_without_kabichk: 0} %{?!_without_kabichk: 1}
+#%define do_kabichk  %{?_without_kabichk: 0} %{?!_without_kabichk: 1}
 # Default disabled: (to override: --with kabichk)
-#%%define do_kabichk  %{?_with_kabichk: 1} %{?!_with_kabichk: 0}
+%define do_kabichk  %{?_with_kabichk: 1} %{?!_with_kabichk: 0}
 
 #
 # Adjust debuginfo generation to suit building a kernel:
@@ -22,7 +22,7 @@
 Name: kernel
 License: GPLv2
 Version: 4.19.19
-Release: 5.0.8.1%{?dist}
+Release: 1
 ExclusiveArch: x86_64
 ExclusiveOS: Linux
 Summary: The Linux kernel
@@ -47,7 +47,7 @@ Requires(post): coreutils kmod
 Requires(posttrans): coreutils dracut
 
 
-Source0: https://code.citrite.net/rest/archive/latest/projects/XSU/repos/linux-stable/archive?at=refs%2Ftags%2Fv4.19.19&format=tar.gz&prefix=kernel-4.19.19#/kernel-4.19.19.tar.gz
+Source0: kernel-4.19.19.tar.gz
 Source1: SOURCES/kernel/kernel-x86_64.config
 Source2: SOURCES/kernel/macros.kernel
 Source3: SOURCES/kernel/check-kabi
@@ -188,6 +188,19 @@ Patch131: gfs2-Fix-lru_count-going-negative.patch
 Patch132: gfs2-iomap-deadlock.patch
 Patch133: gfs2-recovery-locking.patch
 Patch134: abi-version.patch
+
+Patch1000: abi-version-next.patch
+Patch1001: patch-4.19.19-20 
+Patch1002: patch-4.19.20-21 
+Patch1003: patch-4.19.21-22 
+Patch1004: patch-4.19.22-23 
+Patch1005: patch-4.19.23-24 
+Patch1006: patch-4.19.24-25 
+Patch1007: patch-4.19.25-26 
+Patch1008: patch-4.19.26-27 
+Patch1009: patch-4.19.27-28 
+Patch1010: patch-4.19.28-29
+Patch1011: patch-4.19.29-30 
 
 Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/linux-stable/archive?at=refs%2Ftags%2Fv4.19.19&format=tar.gz&prefix=kernel-4.19.19#/kernel-4.19.19.tar.gz) = dffbba4348e9686d6bf42d54eb0f2cd1c4fb3520
 Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XS/repos/linux.pg/archive?format=tar&at=v5.0.8#/kernel.patches.tar) = a71223a84db4bd23df2a0ce59dfe0ae3dc795c85
@@ -493,6 +506,10 @@ fi
 %{python2_sitearch}/*
 
 %changelog
+* Thu May 23 2019 Rushikesh Jadhav <rushikesh7@gmail.com>
+- Disabled kABI check
+- Upgraded patch level to 4.19.30
+
 * Fri Mar 22 2019 Ross Lagerwall <ross.lagerwall@citrix.com> - 4.19.19-5.0.8
 - CA-309637: gfs2: Take log_flush lock during recovery
 
