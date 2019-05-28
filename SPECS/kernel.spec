@@ -1,4 +1,4 @@
-%define uname 4.19.0+1
+%define uname 4.19.36
 %define short_uname 4.19
 %define srcpath /usr/src/kernels/%{uname}-%{_arch}
 
@@ -200,7 +200,13 @@ Patch1007: patch-4.19.25-26
 Patch1008: patch-4.19.26-27 
 Patch1009: patch-4.19.27-28 
 Patch1010: patch-4.19.28-29
-Patch1011: patch-4.19.29-30 
+Patch1011: patch-4.19.29-30
+Patch1012: patch-4.19.30-31
+Patch1013: patch-4.19.31-32
+Patch1014: patch-4.19.32-33
+Patch1015: patch-4.19.33-34
+Patch1016: patch-4.19.34-35 
+Patch1017: patch-4.19.35-36 
 
 Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/linux-stable/archive?at=refs%2Ftags%2Fv4.19.19&format=tar.gz&prefix=kernel-4.19.19#/kernel-4.19.19.tar.gz) = dffbba4348e9686d6bf42d54eb0f2cd1c4fb3520
 Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XS/repos/linux.pg/archive?format=tar&at=v5.0.8#/kernel.patches.tar) = a71223a84db4bd23df2a0ce59dfe0ae3dc795c85
@@ -506,6 +512,9 @@ fi
 %{python2_sitearch}/*
 
 %changelog
+* Tue May 28 2019 Rushikesh Jadhav <rushikesh7@gmail.com>
+- Upgraded patch level to 4.19.36
+
 * Thu May 23 2019 Rushikesh Jadhav <rushikesh7@gmail.com>
 - Disabled kABI check
 - Upgraded patch level to 4.19.30

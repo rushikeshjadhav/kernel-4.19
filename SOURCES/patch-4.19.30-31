@@ -7346,24 +7346,6 @@ index 04443577d48b..1046947064a0 100644
  	}
  
  	if (aac->jbod && (sdev->type == TYPE_DISK))
-diff --git a/drivers/scsi/libiscsi.c b/drivers/scsi/libiscsi.c
-index f78d2e5c1471..4ad61cfa69c0 100644
---- a/drivers/scsi/libiscsi.c
-+++ b/drivers/scsi/libiscsi.c
-@@ -1449,7 +1449,13 @@ static int iscsi_xmit_task(struct iscsi_conn *conn)
- 	if (test_bit(ISCSI_SUSPEND_BIT, &conn->suspend_tx))
- 		return -ENODATA;
- 
-+	spin_lock_bh(&conn->session->back_lock);
-+	if (conn->task == NULL) {
-+		spin_unlock_bh(&conn->session->back_lock);
-+		return -ENODATA;
-+	}
- 	__iscsi_get_task(task);
-+	spin_unlock_bh(&conn->session->back_lock);
- 	spin_unlock_bh(&conn->session->frwd_lock);
- 	rc = conn->session->tt->xmit_task(task);
- 	spin_lock_bh(&conn->session->frwd_lock);
 diff --git a/drivers/scsi/qla2xxx/qla_init.c b/drivers/scsi/qla2xxx/qla_init.c
 index 5352c9bbcaf7..f84f9bf15027 100644
 --- a/drivers/scsi/qla2xxx/qla_init.c
