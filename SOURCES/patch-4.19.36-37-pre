@@ -1,0 +1,15 @@
+--- a/net/bridge/br_input.c	2019-05-29 10:57:43.414000000 +0000
++++ b/net/bridge/br_input.c	2019-05-29 10:58:14.324000000 +0000
+@@ -202,11 +202,8 @@
+ static int br_handle_local_finish(struct net *net, struct sock *sk, struct sk_buff *skb)
+ {
+ 	struct net_bridge_port *p = br_port_get_rcu(skb->dev);
+-	int rc;
+ 
+-	rc = __br_handle_local_finish(skb);
+-	if (rc)
+-		return rc;
++	__br_handle_local_finish(skb);
+ 
+ 	BR_INPUT_SKB_CB(skb)->brdev = p->br->dev;
+ 	br_pass_frame_up(skb);

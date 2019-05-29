@@ -1,4 +1,4 @@
-%define uname 4.19.36
+%define uname 4.19.46
 %define short_uname 4.19
 %define srcpath /usr/src/kernels/%{uname}-%{_arch}
 
@@ -22,7 +22,7 @@
 Name: kernel
 License: GPLv2
 Version: 4.19.19
-Release: 1
+Release: 46
 ExclusiveArch: x86_64
 ExclusiveOS: Linux
 Summary: The Linux kernel
@@ -207,6 +207,17 @@ Patch1014: patch-4.19.32-33
 Patch1015: patch-4.19.33-34
 Patch1016: patch-4.19.34-35 
 Patch1017: patch-4.19.35-36 
+Patch1018: patch-4.19.36-37-pre
+Patch1019: patch-4.19.36-37
+Patch1020: patch-4.19.37-38
+Patch1021: patch-4.19.38-39
+Patch1022: patch-4.19.39-40
+Patch1023: patch-4.19.40-41
+Patch1024: patch-4.19.41-42
+Patch1025: patch-4.19.42-43
+Patch1026: patch-4.19.43-44
+Patch1027: patch-4.19.44-45
+Patch1028: patch-4.19.45-46
 
 Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/linux-stable/archive?at=refs%2Ftags%2Fv4.19.19&format=tar.gz&prefix=kernel-4.19.19#/kernel-4.19.19.tar.gz) = dffbba4348e9686d6bf42d54eb0f2cd1c4fb3520
 Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XS/repos/linux.pg/archive?format=tar&at=v5.0.8#/kernel.patches.tar) = a71223a84db4bd23df2a0ce59dfe0ae3dc795c85
@@ -351,8 +362,8 @@ install -m 644 .config %{buildroot}/boot/config-%{uname}
 install -m 644 System.map %{buildroot}/boot/System.map-%{uname}
 install -m 644 arch/x86/boot/bzImage %{buildroot}/boot/vmlinuz-%{uname}
 truncate -s 20M %{buildroot}/boot/initrd-%{uname}.img
-ln -sf vmlinuz-%{uname} %{buildroot}/boot/vmlinuz-%{short_uname}-xen
-ln -sf initrd-%{uname}.img %{buildroot}/boot/initrd-%{short_uname}-xen.img
+ln -sf vmlinuz-%{uname} %{buildroot}/boot/vmlinuz-%{uname}-xen
+ln -sf initrd-%{uname}.img %{buildroot}/boot/initrd-%{uname}-xen.img
 
 # Install modules
 # Override $(mod-fw) because we don't want it to install any firmware
@@ -464,8 +475,8 @@ fi
 
 %files
 /boot/vmlinuz-%{uname}
-/boot/vmlinuz-%{short_uname}-xen
-/boot/initrd-%{short_uname}-xen.img
+/boot/vmlinuz-%{uname}-xen
+/boot/initrd-%{uname}-xen.img
 %ghost /boot/initrd-%{uname}.img
 /boot/System.map-%{uname}
 /boot/config-%{uname}
@@ -512,6 +523,11 @@ fi
 %{python2_sitearch}/*
 
 %changelog
+* Wed May 29 2019 Rushikesh Jadhav <rushikesh7@gmail.com>
+- Install using uname instead of short_uname to not overwrite old kernel
+- Introduced patch-4.19.36-37-pre
+- Upgraded patch level to 4.19.46
+
 * Tue May 28 2019 Rushikesh Jadhav <rushikesh7@gmail.com>
 - Upgraded patch level to 4.19.36
 
