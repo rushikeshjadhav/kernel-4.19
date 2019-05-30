@@ -523,15 +523,15 @@ fi
 %{python2_sitearch}/*
 
 %changelog
-* Wed May 29 2019 Rushikesh Jadhav <rushikesh7@gmail.com>
+* Wed May 29 2019 Rushikesh Jadhav <rushikesh7@gmail.com> - 4.19.19-46
 - Install using uname instead of short_uname to not overwrite old kernel
 - Introduced patch-4.19.36-37-pre
 - Upgraded patch level to 4.19.46
 
-* Tue May 28 2019 Rushikesh Jadhav <rushikesh7@gmail.com>
+* Tue May 28 2019 Rushikesh Jadhav <rushikesh7@gmail.com> - 4.19.19-36
 - Upgraded patch level to 4.19.36
 
-* Thu May 23 2019 Rushikesh Jadhav <rushikesh7@gmail.com>
+* Thu May 23 2019 Rushikesh Jadhav <rushikesh7@gmail.com> - 4.19.19-30
 - Disabled kABI check
 - Upgraded patch level to 4.19.30
 
