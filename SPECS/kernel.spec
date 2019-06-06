@@ -1,4 +1,4 @@
-%define uname 4.19.46
+%define uname 4.19.48
 %define short_uname 4.19
 %define srcpath /usr/src/kernels/%{uname}-%{_arch}
 
@@ -22,7 +22,7 @@
 Name: kernel
 License: GPLv2
 Version: 4.19.19
-Release: 46
+Release: 48
 ExclusiveArch: x86_64
 ExclusiveOS: Linux
 Summary: The Linux kernel
@@ -218,6 +218,9 @@ Patch1025: patch-4.19.42-43
 Patch1026: patch-4.19.43-44
 Patch1027: patch-4.19.44-45
 Patch1028: patch-4.19.45-46
+Patch1029: patch-4.19.46-47-pre
+Patch1030: patch-4.19.46-47
+Patch1031: patch-4.19.47-48
 
 Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/linux-stable/archive?at=refs%2Ftags%2Fv4.19.19&format=tar.gz&prefix=kernel-4.19.19#/kernel-4.19.19.tar.gz) = dffbba4348e9686d6bf42d54eb0f2cd1c4fb3520
 Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XS/repos/linux.pg/archive?format=tar&at=v5.0.8#/kernel.patches.tar) = a71223a84db4bd23df2a0ce59dfe0ae3dc795c85
@@ -523,6 +526,9 @@ fi
 %{python2_sitearch}/*
 
 %changelog
+* Sat Jun 1 2019 Rushikesh Jadhav <rushikesh7@gmail.com> - 4.19.19-47
+- Upgraded patch level to 4.19.47
+
 * Wed May 29 2019 Rushikesh Jadhav <rushikesh7@gmail.com> - 4.19.19-46
 - Install using uname instead of short_uname to not overwrite old kernel
 - Introduced patch-4.19.36-37-pre
