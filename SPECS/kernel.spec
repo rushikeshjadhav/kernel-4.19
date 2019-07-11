@@ -1,4 +1,4 @@
-%define uname 4.19.48
+%define uname 4.19.58
 %define short_uname 4.19
 %define srcpath /usr/src/kernels/%{uname}-%{_arch}
 
@@ -22,7 +22,7 @@
 Name: kernel
 License: GPLv2
 Version: 4.19.19
-Release: 48
+Release: 58
 ExclusiveArch: x86_64
 ExclusiveOS: Linux
 Summary: The Linux kernel
@@ -221,6 +221,18 @@ Patch1028: patch-4.19.45-46
 Patch1029: patch-4.19.46-47-pre
 Patch1030: patch-4.19.46-47
 Patch1031: patch-4.19.47-48
+Patch1032: patch-4.19.48-49
+Patch1033: patch-4.19.49-50-pre
+Patch1034: patch-4.19.49-50
+Patch1035: patch-4.19.49-50-post
+Patch1036: patch-4.19.50-51
+Patch1037: patch-4.19.51-52
+Patch1038: patch-4.19.52-53
+Patch1039: patch-4.19.53-54
+Patch1040: patch-4.19.54-55
+Patch1041: patch-4.19.55-56
+Patch1042: patch-4.19.56-57
+Patch1043: patch-4.19.57-58
 
 Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/linux-stable/archive?at=refs%2Ftags%2Fv4.19.19&format=tar.gz&prefix=kernel-4.19.19#/kernel-4.19.19.tar.gz) = dffbba4348e9686d6bf42d54eb0f2cd1c4fb3520
 Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XS/repos/linux.pg/archive?format=tar&at=v5.0.8#/kernel.patches.tar) = a71223a84db4bd23df2a0ce59dfe0ae3dc795c85
@@ -526,6 +538,9 @@ fi
 %{python2_sitearch}/*
 
 %changelog
+* Thu Jul 11 2019 Rushikesh Jadhav <rushikesh7@gmail.com> - 4.19.19-58
+- Upgraded patch level to 4.19.58
+
 * Sat Jun 1 2019 Rushikesh Jadhav <rushikesh7@gmail.com> - 4.19.19-47
 - Upgraded patch level to 4.19.47
 

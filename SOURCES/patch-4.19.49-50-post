@@ -1,0 +1,12 @@
+--- a/drivers/gpu/drm/i915/gvt/gtt.c	2019-07-11 07:05:54.063000000 +0000
++++ b/drivers/gpu/drm/i915/gvt/gtt.c	2019-07-11 07:06:26.109000000 +0000
+@@ -2170,7 +2170,8 @@
+ 	struct intel_vgpu_mm *ggtt_mm = vgpu->gtt.ggtt_mm;
+ 	struct intel_gvt_gtt_pte_ops *ops = gvt->gtt.pte_ops;
+ 	unsigned long g_gtt_index = off >> info->gtt_entry_size_shift;
+-	unsigned long gma, gfn;
++	unsigned long gfn;
++	unsigned long h_gtt_index;
+ 	struct intel_gvt_gtt_entry e = {.val64 = 0, .type = GTT_TYPE_GGTT_PTE};
+ 	struct intel_gvt_gtt_entry m = {.val64 = 0, .type = GTT_TYPE_GGTT_PTE};
+ 	dma_addr_t dma_addr;
