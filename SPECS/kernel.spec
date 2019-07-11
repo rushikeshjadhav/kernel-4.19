@@ -1,5 +1,6 @@
 %define uname 4.19.58
 %define short_uname 4.19
+%define base_version 4.19.19
 %define srcpath /usr/src/kernels/%{uname}-%{_arch}
 
 # Control whether we perform a compat. check against published ABI.
@@ -19,10 +20,10 @@
 # This reduces the size of debuginfo.
 %define _find_debuginfo_opts -r
 
-Name: kernel
+Name: kernel-alt
 License: GPLv2
-Version: 4.19.19
-Release: 58
+Version: 4.19.58
+Release: 1
 ExclusiveArch: x86_64
 ExclusiveOS: Linux
 Summary: The Linux kernel
@@ -304,7 +305,7 @@ Provides: python2-perf
 
 %prep
 
-%autosetup -p1
+%autosetup -p1 -n kernel-%{base_version}
 
 make mrproper
 cp -f %{SOURCE1} .config
@@ -538,8 +539,9 @@ fi
 %{python2_sitearch}/*
 
 %changelog
-* Thu Jul 11 2019 Rushikesh Jadhav <rushikesh7@gmail.com> - 4.19.19-58
+* Thu Jul 11 2019 Rushikesh Jadhav <rushikesh7@gmail.com> - 4.19.58
 - Upgraded patch level to 4.19.58
+- Renamed package to kernel-alt
 
 * Sat Jun 1 2019 Rushikesh Jadhav <rushikesh7@gmail.com> - 4.19.19-47
 - Upgraded patch level to 4.19.47
