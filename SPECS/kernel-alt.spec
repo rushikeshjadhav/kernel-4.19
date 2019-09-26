@@ -470,12 +470,12 @@ cp -a --parents arch/x86/tools/relocs.h %{buildroot}%{srcpath}
 cp -a --parents tools/include/tools/le_byteshift.h %{buildroot}%{srcpath}
 cp -a --parents arch/x86/purgatory/purgatory.c %{buildroot}%{srcpath}
 cp -a --parents arch/x86/purgatory/stack.S %{buildroot}%{srcpath}
-cp -a --parents arch/x86/purgatory/string.c %{buildroot}%{srcpath}
+#cp -a --parents arch/x86/purgatory/string.c %{buildroot}%{srcpath}
 cp -a --parents arch/x86/purgatory/setup-x86_64.S %{buildroot}%{srcpath}
 cp -a --parents arch/x86/purgatory/entry64.S %{buildroot}%{srcpath}
-cp -a --parents arch/x86/boot/string.h %{buildroot}%{srcpath}
-cp -a --parents arch/x86/boot/string.c %{buildroot}%{srcpath}
-cp -a --parents arch/x86/boot/ctype.h %{buildroot}%{srcpath}
+#cp -a --parents arch/x86/boot/string.h %{buildroot}%{srcpath}
+#cp -a --parents arch/x86/boot/string.c %{buildroot}%{srcpath}
+#cp -a --parents arch/x86/boot/ctype.h %{buildroot}%{srcpath}
 
 # Copy .config to include/config/auto.conf so "make prepare" is unnecessary.
 cp -a %{buildroot}%{srcpath}/.config %{buildroot}%{srcpath}/include/config/auto.conf
