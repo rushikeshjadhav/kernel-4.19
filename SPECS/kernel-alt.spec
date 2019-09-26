@@ -1,4 +1,4 @@
-%define uname 4.19.62
+%define uname 4.19.68
 %define short_uname 4.19
 %define base_version 4.19.19
 %define srcpath /usr/src/kernels/%{uname}-%{_arch}
@@ -22,7 +22,7 @@
 
 Name: kernel-alt
 License: GPLv2
-Version: 4.19.62
+Version: 4.19.68
 Release: 1
 ExclusiveArch: x86_64
 ExclusiveOS: Linux
@@ -238,6 +238,12 @@ Patch1044: patch-4.19.58-59
 Patch1045: patch-4.19.59-60
 Patch1046: patch-4.19.60-61
 Patch1047: patch-4.19.61-62
+Patch1048: patch-4.19.62-63
+Patch1049: patch-4.19.63-64
+Patch1050: patch-4.19.64-65
+Patch1051: patch-4.19.65-66
+Patch1052: patch-4.19.66-67
+Patch1053: patch-4.19.67-68
 
 
 Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/linux-stable/archive?at=refs%2Ftags%2Fv4.19.19&format=tar.gz&prefix=kernel-4.19.19#/kernel-4.19.19.tar.gz) = dffbba4348e9686d6bf42d54eb0f2cd1c4fb3520
@@ -544,6 +550,9 @@ fi
 %{python2_sitearch}/*
 
 %changelog
+* Thu Sep 26 2019 Rushikesh Jadhav <rushikesh7@gmail.com> - 4.19.68
+- Upgraded patch level to 4.19.68
+
 * Tue Jul 30 2019 Rushikesh Jadhav <rushikesh7@gmail.com> - 4.19.62
 - Upgraded patch level to 4.19.62
 
